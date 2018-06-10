@@ -1,0 +1,4 @@
+Nikola|Vasic|2|nix21|mypassword|0511990985441|220|NS-653|0
+Ivana|Terzic|1|iki66|betmen|0112987546728|230|BG-985|1
+Bojan|Simic|2|bokii1|crazyfrog|1409999834637|200|KG-232|2
+Ilija|Opacic|2|ili2ja|hamburger|1010988345768|210|NS-111|3

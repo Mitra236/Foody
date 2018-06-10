@@ -1,0 +1,36 @@
+1|Foody|Capricciosa|130.0|Pica sa sunkom|100.0
+1|Foody|Margarita|150.0|Pica sa sunkom i sirom|200.0
+1|Foody|Kulen|140.0|Pica sa kulenom|110.0
+1|Home Made|Pileci medaljoni|570.0|Socni pileci medaljoni|200.0
+1|Home Made|Teletina ispod saca|610.0|Teletina|250.0
+1|Home Made|Domaca Corba|320.0|Corba|230.0
+1|Grilly|Punjena pljeskavica|130.0|Preklopljena pljeskavica sa sirom šunkom i slaninom|300.0
+1|Grilly|Cevapi|220.0|Cevapi na rostilju|150.0
+1|Grilly|Raznjici|240.0|Raznjici na zaru|180.0
+1|Ni Hao|Cips od skampi|200.0|Cips sa skampima|180.0
+1|Ni Hao|Susi|320.0|Susi sa lososom|190.0
+1|Ni Hao|Nudle|410.0|Nudle sa kineskim povrcem|200.0
+1|Indian Taste|Pakora|499.0|Indijsko predjelo|100.0
+1|Indian Taste|Baji|399.0|Przeni krompir i luk|120.0
+1|Indian Taste|Tandoori|690.0|Rostilj na indijski nacin|500.0
+1|Candiz|Sitni kolaci|600.0|Kolaci|1000.0
+1|Candiz|Mafini|130.0|Mafini sa cokoladom|500.0
+1|Candiz|Cokoladna torta|150.0|Torta sa cokoladom|1000.0
+2|Foody|Coca Cola|50.0|Osvezavajuci napitak|1.8
+2|Foody|Fanta|45.0|Osvezavajuci napitak|1.9
+2|Foody|Sprite|60.0|Osvezavajuci napitak|1.2
+2|Home Made|Domaca kafa|50.0|Kafa|1.6
+2|Home Made|Vino Rose|120.0|Vino|1.5
+2|Home Made|Cedjeni sok|80.0|Sok|1.8
+2|Grilly|Sprite|60.0|Osvezavajuci napitak|1.2
+2|Grilly|Fanta|80.0|Osvezavajuci napitak|1.5
+2|Grilly|Coca Cola|80.0|Osvezavajuci napitak|1.5
+2|Ni Hao|Caj|70.0|Ledeni caj od jasmina|1.8
+2|Ni Hao|Limunada|70.0|Cedjena limunada|1.8
+2|Ni Hao|Sok Narandza|50.0|Cedjena pomoranza|1.6
+2|Indian Taste|Jigarthanda|300.0|Tradicionalno indijsko pice|1.6
+2|Indian Taste|Lassi|280.0|Pice od jogurta|1.7
+2|Indian Taste|Sambaram|320.0|Osvezavajuci napitak od djumbira|1.5
+2|Candiz|Coca Cola|80.0|Osvezavajuci napitak|1.0
+2|Candiz|Cedjena pomorandza|100.0|Osvezavajuci napitak|1.9
+2|Candiz|Topla cokolada|180.0|Cokoladni napitak|1.5

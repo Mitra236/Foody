@@ -1,0 +1,4 @@
+Marko|Markovic|2|maki88|trotinet|1202994913576|560.0
+Ana|Ilic|1|anci92|lollipop|2708992985643|520.0
+Maja|Maric|1|makica44|lozinka99|1706989564324|480.0
+Nenad|Dacic|2|neno0|pass123|2505985653127|450.0
