@@ -78,7 +78,6 @@ public class AdminChange extends JFrame {
 		add(lblSurname);
 		add(txtSurname);
 		add(lblGender);
-		cbGender.setModel(new DefaultComboBoxModel<>(EnumGender.values()));
 		add(cbGender);
 		add(lblUsername);
 		add(txtUsername);

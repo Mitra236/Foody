@@ -25,7 +25,7 @@ public class ArticleChange extends JFrame {
 private static final long serialVersionUID = 1L;
 	
 	private JLabel lblType = new JLabel("Tip");
-	private JComboBox<EnumArticle> cbArticle = new JComboBox<EnumArticle>();
+	private JComboBox<EnumArticle> cbArticle = new JComboBox<EnumArticle>(EnumArticle.values());
 	private JLabel lblRestaurant = new JLabel("Restoran");
 	private JTextField txtRestaurant = new JTextField(20);
 	private JLabel lblName = new JLabel("Naziv artikla");
@@ -83,7 +83,6 @@ private static final long serialVersionUID = 1L;
 		}
 		
 		add(lblType);
-		cbArticle.setModel(new DefaultComboBoxModel<>(EnumArticle.values()));
 		add(cbArticle);
 		add(lblRestaurant);
 		add(txtRestaurant);

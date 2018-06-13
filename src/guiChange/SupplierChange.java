@@ -84,7 +84,6 @@ public class SupplierChange extends JFrame {
 		add(lblSurname);
 		add(txtSurname);
 		add(lblGender);
-		cbGender.setModel(new DefaultComboBoxModel<>(EnumGender.values()));
 		add(cbGender);
 		add(lblUsername);
 		add(txtUsername);
@@ -97,7 +96,6 @@ public class SupplierChange extends JFrame {
 		add(lblLicence);
 		add(txtLicence);
 		add(lblVehicle);
-		cbVehicle.setModel(new DefaultComboBoxModel<>(EnumVehicle.values()));
 		add(cbVehicle);
 		add(new JLabel());
 		add(btnOK, "split 2");

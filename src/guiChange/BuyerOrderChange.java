@@ -26,8 +26,9 @@ import loadFiles.LoadF;
 import net.miginfocom.swing.MigLayout;
 import order.Order;
 import restaurants.Restaurants;
+import user.Users;
 
-public class OrderChange extends JFrame {
+public class BuyerOrderChange extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	private JLabel lblnewArticle = new JLabel("Izaberite novi artikal");
@@ -40,9 +41,9 @@ public class OrderChange extends JFrame {
 	private JLabel lblDate = new JLabel("Datum");
 	private JTextField txtDate = new JTextField(20);
 	private JLabel lblBuyer = new JLabel("Kupac");
-	private JComboBox<String> cbBuyer = new JComboBox<String>();
-	private JLabel lblSupplier = new JLabel("Kupac");
-	private JComboBox<String> cbSupplier = new JComboBox<String>();
+	private JTextField txtBuyer = new JTextField(20);
+	private JLabel lblSupplier = new JLabel("Dostavljac");
+	private JTextField txtSupplier = new JTextField(20);
 	private JLabel lblStatus = new JLabel("Status");
 	private JComboBox<EnumStatus> cbStatus = new JComboBox<EnumStatus>(EnumStatus.values());
 	private JLabel lblPrice = new JLabel("Cena");
@@ -53,11 +54,13 @@ public class OrderChange extends JFrame {
 	
 	private LoadF entities;
 	private Order order;
+	private Users user;
 	
-	public OrderChange(LoadF entities, Order order) {
+	public BuyerOrderChange(LoadF entities, Order order, Users user) {
 		this.entities = entities;
 		this.order = order;
-		orderedArticle.removeAll(orderedArticle);
+		this.user = user;
+		//orderedArticle.removeAll(orderedArticle);
 		setTitle("Izmena porudzbine");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -65,19 +68,22 @@ public class OrderChange extends JFrame {
 		setResizable(false);
 		initGui();
 		initActions();
+		enableFields();
 		pack();
 	}
 
 	private void initGui() {
 		MigLayout layout = new MigLayout("wrap 2");
 		setLayout(layout);
+		String suString = "prazno";
+		if(this.order.getSupplier() != null) suString = this.order.getSupplier().getUsername();
 		
 		if(this.order != null) {
 			txtArticle.setText(this.order.forWrite());
 			txtRest.setText(this.order.getRest().getRestName());
 			txtDate.setText(this.order.getDate().toString());
-			cbBuyer.setSelectedItem(this.order.getBuyer());
-			cbSupplier.setSelectedItem(this.order.getSupplier());
+			txtBuyer.setText(this.order.getBuyer().getUsername());
+			txtSupplier.setText(suString);
 			cbStatus.setSelectedItem(this.order.getStatus());
 			txtPrice.setText(String.valueOf(this.order.getPrice()));
 
@@ -105,16 +111,6 @@ public class OrderChange extends JFrame {
 		}
 		
 		
-		for(Buyer b:entities.getBuyer()) {
-			cbBuyer.addItem(b.getUsername());
-		}
-		
-		cbSupplier.addItem("prazno");
-		cbStatus.setEnabled(false);
-		for(Supplier s: entities.getSupplier()) {
-			cbSupplier.addItem(s.getUsername());
-		}
-		
 		
 		add(lblnewArticle);
 		add(cbArticle, "split 2");
@@ -126,9 +122,9 @@ public class OrderChange extends JFrame {
 		add(lblDate);
 		add(txtDate);
 		add(lblBuyer);
-		add(cbBuyer);
+		add(txtBuyer);
 		add(lblSupplier);
-		add(cbSupplier);
+		add(txtSupplier);
 		add(lblStatus);
 		add(cbStatus);
 		add(lblPrice);
@@ -147,6 +143,15 @@ public class OrderChange extends JFrame {
 		}
 		txtPrice.setText(String.valueOf(startPrice));
 		return startPrice;
+	}
+	
+	private void enableFields() {
+		txtRest.setEditable(false);
+		txtDate.setEditable(false);
+		txtBuyer.setEditable(false);
+		txtSupplier.setEditable(false);
+		cbStatus.setEnabled(false);
+		txtPrice.setEditable(false);
 	}
 	
 	
@@ -190,18 +195,6 @@ public class OrderChange extends JFrame {
 		});
 		
 		
-		cbSupplier.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(entities.sName(cbSupplier.getSelectedItem().toString()) == null) {
-					cbStatus.setSelectedItem(EnumStatus.porucena);
-				}else {
-					cbStatus.setSelectedItem(EnumStatus.dostava);
-				}
-				
-			}
-		});
 		btnOK.addActionListener(new ActionListener() {
 			
 			@Override
@@ -217,8 +210,8 @@ public class OrderChange extends JFrame {
 					} catch (ParseException e1) {
 						e1.printStackTrace();
 					}
-					Buyer buyer = entities.bName(cbBuyer.getSelectedItem().toString());
-					Supplier supplier = entities.sName(cbSupplier.getSelectedItem().toString());
+					Buyer buyer = entities.bName(txtBuyer.getText().trim());
+					Supplier supplier = entities.sName(txtSupplier.getText().trim());
 					EnumStatus status = (EnumStatus)cbStatus.getSelectedItem();
 					String priceString = txtPrice.getText().trim();
 					double price = Double.parseDouble(priceString);
@@ -234,8 +227,8 @@ public class OrderChange extends JFrame {
 					}
 					entities.writeOrders();
 					
-					OrderChange.this.dispose();
-					OrderChange.this.setVisible(false);
+					BuyerOrderChange.this.dispose();
+					BuyerOrderChange.this.setVisible(false);
 					
 				}
 				
@@ -246,8 +239,8 @@ public class OrderChange extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				OrderChange.this.dispose();
-				OrderChange.this.setVisible(false);
+				BuyerOrderChange.this.dispose();
+				BuyerOrderChange.this.setVisible(false);
 				
 			}
 		});

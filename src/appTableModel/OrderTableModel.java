@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -108,10 +109,10 @@ public class OrderTableModel extends JFrame {
 				if(row == -1) {
 					JOptionPane.showMessageDialog(null, "Morate izbrati red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				}else {
-					String userName = orderTable.getValueAt(row, 3).toString();
-					Order a = entities.gOrder(userName);
+			//		String userName = orderTable.getValueAt(row, 3).toString();
+					Order a = entities.getOrder().get(row);
 					if(a != null) {
-						OrderChange och = new OrderChange(entities, a, null);
+						OrderChange och = new OrderChange(entities, a);					
 						och.setVisible(true);
 					}else {
 						JOptionPane.showMessageDialog(null, "Nije moguce pronaci odabrani artikal", "Greska", JOptionPane.WARNING_MESSAGE);

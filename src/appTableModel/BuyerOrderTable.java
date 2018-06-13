@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -19,8 +20,10 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import enumeration.EnumStatus;
+import guiChange.BuyerOrderChange;
 import loadFiles.LoadF;
 import order.Order;
+import orderModel.OrderBuyer;
 import user.Users;
 
 public class BuyerOrderTable extends JFrame {
@@ -49,7 +52,7 @@ public class BuyerOrderTable extends JFrame {
 	}
 
 	private void initGui() {
-		
+		btnEdit.setEnabled(false);
 		btnDelete.setEnabled(false);
 		
 		ImageIcon editIcon = new ImageIcon("src/projectImages/edit.png");
@@ -118,6 +121,28 @@ public class BuyerOrderTable extends JFrame {
 			}
 		});
 		
+		articlesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				int selectedRow = articlesTable.getSelectedRow();
+				if(selectedRow == -1) {
+					JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
+				}else {
+					EnumStatus status = (EnumStatus)articlesTable.getValueAt(selectedRow, 5);
+					if(!e.getValueIsAdjusting() && status == EnumStatus.otkazana) {
+						btnEdit.setEnabled(false);
+					}else if(!e.getValueIsAdjusting() && status == EnumStatus.dostavljena) {
+						btnEdit.setEnabled(false);
+					}else if(!e.getValueIsAdjusting() && status == EnumStatus.odbijena) {
+						btnEdit.setEnabled(false);
+					}else if(!e.getValueIsAdjusting() && status == EnumStatus.porucena) {
+						btnEdit.setEnabled(true);
+					}
+				}
+			}
+		});
+		
 		
 		btnDelete.addActionListener(new ActionListener() {
 			
@@ -147,7 +172,27 @@ public class BuyerOrderTable extends JFrame {
 			
 		});
 		
+		btnEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int row = articlesTable.getSelectedRow();
+				if(row == -1) {
+					JOptionPane.showMessageDialog(null, "Morate izbrati red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
+				}else {
+					Order a = orderBuyer.get(row);
+					if(a != null) {
+						BuyerOrderChange bch = new BuyerOrderChange(entities, a, user);
+						bch.setVisible(true);
+					}else {
+						JOptionPane.showMessageDialog(null, "Nije moguce pronaci odabrani artikal", "Greska", JOptionPane.WARNING_MESSAGE);
+					}
+				}
+			}
+		});
+		
 	}
+	
 	
 
 }

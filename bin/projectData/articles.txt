@@ -20,7 +20,7 @@
 2|Foody|Fanta|45.0|Osvezavajuci napitak|1.9
 2|Foody|Sprite|60.0|Osvezavajuci napitak|1.2
 2|Home Made|Domaca kafa|50.0|Kafa|1.6
-2|Home Made|Vino Rose|120.0|Vino|1.5
+2|Home Made|Vino|120.0|Vino|1.5
 2|Home Made|Cedjeni sok|80.0|Sok|1.8
 2|Grilly|Sprite|60.0|Osvezavajuci napitak|1.2
 2|Grilly|Fanta|80.0|Osvezavajuci napitak|1.5

@@ -25,7 +25,7 @@ public class RestaurantChange extends JFrame {
 	private JLabel lblAddress = new JLabel("Adresa");
 	private JTextField txtAddress = new JTextField(20);
 	private JLabel lblType = new JLabel("Kategorija");
-	private JComboBox<EnumRestaurant> cbType = new JComboBox<EnumRestaurant>();
+	private JComboBox<EnumRestaurant> cbType = new JComboBox<EnumRestaurant>(EnumRestaurant.values());
 	private JButton btnOK = new JButton("OK");
 	private JButton btnCancel = new JButton("Cancel");
 	private LoadF entities;
@@ -63,7 +63,6 @@ public class RestaurantChange extends JFrame {
 		add(lblAddress);
 		add(txtAddress);
 		add(lblType);
-		cbType.setModel(new DefaultComboBoxModel<>(EnumRestaurant.values()));
 		add(cbType);
 		add(new JLabel());
 		add(btnOK, "split 2");

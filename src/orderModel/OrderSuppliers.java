@@ -161,7 +161,7 @@ public class OrderSuppliers extends JFrame{
 					Order o = orderSupplier.get(selectedRow);
 					if(o != null) {
 						int choice = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da dostavite porudzbinu?",
-																	"Dodela porudzbine", JOptionPane.YES_NO_OPTION);
+																	"Dostavljanje porudzbine", JOptionPane.YES_NO_OPTION);
 						if(choice == JOptionPane.YES_OPTION) {
 							Order o1 = new Order(o.getOrderedDish(), o.getRest(), o.getDate(), o.getBuyer(),
 									o.getSupplier(), EnumStatus.dostavljena, o.getPrice());
@@ -202,7 +202,7 @@ public class OrderSuppliers extends JFrame{
 					if(status == EnumStatus.otkazana) {
 						btnDelete.setEnabled(false);
 					}else if(o != null) {
-						int choice = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da odbijete porudzbinu",
+						int choice = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da odbijete porudzbinu?",
 																	"Otkazivanje porudzbine", JOptionPane.YES_NO_OPTION);
 						if(choice == JOptionPane.YES_OPTION) {
 								Order o1 = new Order(o.getOrderedDish(), o.getRest(), o.getDate(), o.getBuyer(),

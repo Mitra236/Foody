@@ -82,6 +82,7 @@ public class OrderBuyer extends JFrame {
 		this.order = order;
 		this.rest = rest;
 		this.user = user;
+		orderedArticle.removeAll(orderedArticle);
 		setTitle("Artikli");
 		setSize(1000, 500);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -115,6 +116,8 @@ public class OrderBuyer extends JFrame {
 				availableArticle.add(dr);
 			}
 		}
+		
+		
 		
 		int countArticles = dishRest.size() + drinkRest.size();
 		String[] header = new String[] {"Tip", "Restoran", "Naziv artikla", "Cena", "Opis", "Kolicina"};
@@ -392,7 +395,8 @@ public class OrderBuyer extends JFrame {
 				if(validation() == true) {
 					ImageIcon icon = new ImageIcon("src/projectImages/spongebob.gif");
 					JOptionPane.showMessageDialog(null, "Uspesna porudzbina", "Uspesna porudzbina", JOptionPane.INFORMATION_MESSAGE, icon);
-					
+					String reststring = txtRest.getText().trim();
+					Restaurants resto = entities.rName(reststring);
 					String dateString = txtDate.getText().trim();
 					SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 					Date date = null;
@@ -408,6 +412,15 @@ public class OrderBuyer extends JFrame {
 					if(order == null) {
 						Order o = new Order(orderedArticle, rest, date, (Buyer) user, supplier, status, price);
 						entities.getOrder().add(o);
+					}else if(order != null) {
+						order.setOrderedDish(orderedArticle);
+						order.setRest(resto);
+						order.setDate(date);
+						order.setBuyer((Buyer) user);
+						order.setSupplier(supplier);
+						order.setStatus(status);
+						order.setPrice(price);
+						
 					}
 					entities.writeOrders();
 					
@@ -421,7 +434,6 @@ public class OrderBuyer extends JFrame {
 					
 						}
 					}
-					orderedArticle.removeAll(orderedArticle);
 					availableArticle.removeAll(availableArticle);
 					entities.writePoints();
 					OrderBuyer.this.dispose();

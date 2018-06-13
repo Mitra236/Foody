@@ -81,6 +81,7 @@ public class OrderAdmin extends JFrame {
 		this.entities = entities;
 		this.order = order;
 		this.rest = rest;
+		orderedArticle.removeAll(orderedArticle);
 		setTitle("Porucivanje");
 		setSize(1000, 500);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -112,6 +113,7 @@ public class OrderAdmin extends JFrame {
 				availableArticle.add(dr);
 			}
 		}
+		
 		
 		
 		int countArticles = dishRest.size() + drinkRest.size();
@@ -445,7 +447,7 @@ public class OrderAdmin extends JFrame {
 						}
 						entities.writePoints();
 							
-					orderedArticle.removeAll(orderedArticle);
+					
 					availableArticle.removeAll(availableArticle);
 					OrderAdmin.this.dispose();
 					OrderAdmin.this.setVisible(false);

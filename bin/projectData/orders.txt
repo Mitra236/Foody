@@ -1,8 +1,7 @@
-Cips od skampi,Caj,|Ni Hao|Sat Jun 09 20:57:21 CEST 2018|alex65|ili2ja|3|629.0
-Baji,Lassi,|Indian Taste|Sat Jun 09 21:00:50 CEST 2018|jojo7|prazno|1|981.0
-Mafini,|Candiz|Sat Jun 09 21:20:30 CEST 2018|alex65|prazno|1|320.0
 Margarita,Sprite,|Foody|Sat Jun 09 23:59:19 CEST 2018|alex65|prazno|1|555.0
-Tandoori,|Indian Taste|Sat Jun 09 00:28:42 CEST 2018|alex65|iki66|4|729.0
+Tandoori,|Indian Taste|Sat Jun 09 00:28:42 CEST 2018|jojo7|iki66|3|729.0
+Kulen,|Foody|Sun Jun 10 14:17:31 CEST 2018|minam1|prazno|1|340.0
 Capricciosa,Sprite,|Foody|Fri Jun 08 17:57:44 CEST 2018|alex65|iki66|4|590.0
-Margarita,Sprite,|Foody|Sat Jun 09 00:35:45 CEST 2018|mro00|iki66|4|573.0
-Kulen,Sprite,|Foody|Sun Jun 10 14:17:31 CEST 2018|mro00|iki66|5|582.0
+Pileci medaljoni,Vino,|Home Made|Tue Jun 12 19:17:17 CEST 2018|alex65|iki66|4|1024.0
+Cevapi,Coca Cola,|Grilly|Tue Jun 12 23:12:41 CEST 2018|minam1|prazno|2|670.0
+Teletina ispod saca,Domaca Corba,|Home Made|Wed Jun 13 16:33:10 CEST 2018|alex65|prazno|1|1250.0

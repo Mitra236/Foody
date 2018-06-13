@@ -65,13 +65,7 @@ public class BuyerChange extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		
 		if(this.buyer != null) {
-			txtName.setText(this.buyer.getName());
-			txtSurname.setText(this.buyer.getSurname());
-			cbGender.setSelectedItem(this.buyer.getGender());
-			txtUsername.setText(this.buyer.getUsername());
-			pfPassword.setText(this.buyer.getPassword());
-			txtAddress.setText(this.buyer.getAddress());
-			txtNumber.setText(this.buyer.getPhoneNum());
+			fillupFields();
 		}
 		
 		add(lblName);
@@ -79,7 +73,6 @@ public class BuyerChange extends JFrame {
 		add(lblSurname);
 		add(txtSurname);
 		add(lblGender);
-		cbGender.setModel(new DefaultComboBoxModel<>(EnumGender.values()));
 		add(cbGender);
 		add(lblUsername);
 		add(txtUsername);
@@ -95,34 +88,7 @@ public class BuyerChange extends JFrame {
 		
 	}
 	
-	private boolean validation() {
-		boolean ok = true;
-		String message = "Greska u unosu:\n";
-		if(txtName.getText().trim().equals("")) {
-			ok = false;
-			message += "- Ime ne sme biti prazno polje:\n";
-		}else if(txtSurname.getText().trim().equals("")) {
-			ok = false;
-			message += "- Prezime ne sme biti prazno polje:\n";
-		}else if(txtUsername.getText().trim().equals("")) {
-			ok = false;
-			message += "- Korisnicko ime ne sme biti prazno polje:\n";
-		}else if(pfPassword.getText().trim().equals("")) {
-			ok = false;
-			message += "- Lozinka ne sme biti prazno polje:\n";
-		}else if(txtAddress.getText().trim().equals("")) {
-			ok = false;
-			message += "- Adresa ne sme biti prazno polje:\n";
-		}else if(txtNumber.getText().trim().equals("")) {
-			ok = false;
-			message += "- Broj ne sme biti prazno polje:\n";
-		}
-		if(ok == false) {
-			JOptionPane.showMessageDialog(null, message, "Greska", JOptionPane.WARNING_MESSAGE);
-		}
-		
-		return ok;
-	}
+	
 	
 	private void initActions() {
 		btnOK.addActionListener(new ActionListener() {
@@ -166,6 +132,45 @@ public class BuyerChange extends JFrame {
 				BuyerChange.this.dispose();
 			}	
 		});
+	}
+	
+	private void fillupFields() {
+		txtName.setText(this.buyer.getName());
+		txtSurname.setText(this.buyer.getSurname());
+		cbGender.setSelectedItem(this.buyer.getGender());
+		txtUsername.setText(this.buyer.getUsername());
+		pfPassword.setText(this.buyer.getPassword());
+		txtAddress.setText(this.buyer.getAddress());
+		txtNumber.setText(this.buyer.getPhoneNum());
+	}
+	
+	private boolean validation() {
+		boolean ok = true;
+		String message = "Greska u unosu:\n";
+		if(txtName.getText().trim().equals("")) {
+			ok = false;
+			message += "- Ime ne sme biti prazno polje:\n";
+		}else if(txtSurname.getText().trim().equals("")) {
+			ok = false;
+			message += "- Prezime ne sme biti prazno polje:\n";
+		}else if(txtUsername.getText().trim().equals("")) {
+			ok = false;
+			message += "- Korisnicko ime ne sme biti prazno polje:\n";
+		}else if(pfPassword.getText().trim().equals("")) {
+			ok = false;
+			message += "- Lozinka ne sme biti prazno polje:\n";
+		}else if(txtAddress.getText().trim().equals("")) {
+			ok = false;
+			message += "- Adresa ne sme biti prazno polje:\n";
+		}else if(txtNumber.getText().trim().equals("")) {
+			ok = false;
+			message += "- Broj ne sme biti prazno polje:\n";
+		}
+		if(ok == false) {
+			JOptionPane.showMessageDialog(null, message, "Greska", JOptionPane.WARNING_MESSAGE);
+		}
+		
+		return ok;
 	}
 
 }
